@@ -1,14 +1,11 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import utils
-import os
 
 app = FastAPI()
 
-key = os.environ['AZURE_TEXT_ANALYTICS_KEY']
-
 headers = {
-    "Ocp-Apim-Subscription-Key": key,
+    "Ocp-Apim-Subscription-Key": "767ad8367aab487d803d03a3741789e4",
     "Content-Type": "application/json",
     "Accept": "application/json"
 }
@@ -28,5 +25,5 @@ def analyze_text(text: Model):
         
         response["sentiment"].append(sentiment["documents"][0])
         response["keyphrases"].append(keyphrases["documents"][0])
-
+        
     return response

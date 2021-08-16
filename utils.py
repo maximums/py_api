@@ -10,9 +10,7 @@
 #     return temp_file
 
 import requests as req
-import os
 
 def call_text_analytics_api(headers, document, endpoint):
-    root = os.environ['AZURE_TEXT_ANALYTICS_ENDPOINT']
-    response = req.post(root + endpoint, headers=headers,json=document)
+    response = req.post('https://fastapi.cognitiveservices.azure.com/text/analytics/v3.1/' + endpoint, headers=headers,json=document)
     return response.json()
