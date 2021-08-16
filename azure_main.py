@@ -1,11 +1,14 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import utils
+import os
 
 app = FastAPI()
 
+key = os.environ['AZURE_KEY']
+
 headers = {
-    "Ocp-Apim-Subscription-Key": "767ad8367aab487d803d03a3741789e4",
+    "Ocp-Apim-Subscription-Key": key,
     "Content-Type": "application/json",
     "Accept": "application/json"
 }
